@@ -2,7 +2,7 @@ package ru.yandex.practicum;
 
 import java.util.Objects;
 
-//  Класс для хранения правила загаданого слова
+//  Класс для хранения правила загаданного слова
 public class RuleSecretWord {
     private final char symbol;
     private final char sign;
