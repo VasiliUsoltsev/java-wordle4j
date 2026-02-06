@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class WordleDictionaryLoader {
     private final FileLogger logger;
+
     public WordleDictionaryLoader(FileLogger logger) {
         this.logger = logger;
     }

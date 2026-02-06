@@ -2,12 +2,12 @@ package ru.yandex.practicum;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 
 public class FileLogger {
     private boolean isConsole;
     private String fileName;
+
     public FileLogger() {
         this.isConsole = true;
         PrintWriter logFile = new PrintWriter(System.out, true);
