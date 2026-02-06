@@ -7,7 +7,6 @@ import ru.yandex.practicum.exceptions.game.WordNotRussian;
 import ru.yandex.practicum.exceptions.program.DictionaryEmpty;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
