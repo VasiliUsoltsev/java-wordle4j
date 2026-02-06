@@ -3,7 +3,6 @@ package ru.yandex.practicum;
 import ru.yandex.practicum.exceptions.program.DictionaryEmpty;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -21,7 +20,8 @@ public class WordleDictionaryLoader {
     public WordleDictionaryLoader(FileLogger logger) {
         this.logger = logger;
     }
-    public  WordleDictionary loadDictionary(String fileName) throws IOException, DictionaryEmpty {
+
+    public WordleDictionary loadDictionary(String fileName) throws IOException, DictionaryEmpty {
         List<String> words = new ArrayList<>();
         String str;
         try (BufferedReader fileReader = new BufferedReader(new FileReader(fileName, StandardCharsets.UTF_8))) {

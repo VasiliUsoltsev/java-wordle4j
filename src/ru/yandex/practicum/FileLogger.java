@@ -19,7 +19,7 @@ public class FileLogger {
         this.isConsole = false;
         this.fileName = fileName;
         try (PrintWriter logFile = new PrintWriter(new FileWriter(fileName, true))) {
-                logFile.write("+".repeat(20) + "Старт новой игры!" + "+".repeat(20) + "\n");
+            logFile.write("+".repeat(20) + "Старт новой игры!" + "+".repeat(20) + "\n");
         } catch (IOException e) {
             System.out.println("Ошибка загрузки модуля логирования!");
         }

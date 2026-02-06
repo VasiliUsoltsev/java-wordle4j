@@ -65,7 +65,7 @@ public class WordleGame {
         return steps;
     }
 
-     // Проверка введенного слова с загаданным
+    // Проверка введенного слова с загаданным
     public int checkInputWord(String inputWord) throws WordNotFoundInDictionary, WordNotRussian, WordIsWrongLength {
         logger.addLog("Проверяем введенное слово - \'" + inputWord + "\'");
         if (inputWord.isBlank()) {
@@ -91,8 +91,7 @@ public class WordleGame {
             logger.addLog("Слово угадано на " + steps + " шаге, секретное слово - \'" + secretWord + "\'");
             steps = MAX_STEPS_GAME;
             return SECRET_WORD;
-        }
-        else {
+        } else {
             // Слово не угадано
             logger.addLog("Слово не угадано - \'" + inputWord + "\' != \'" + secretWord + "\'");
             return NOT_SECRET_WORD;
@@ -155,8 +154,7 @@ public class WordleGame {
         if (checkRule(rule)) {
             rules.add(rule);
             logger.addLog("Правило \'" + sign + "\' на символ - \'" + symbol + "\' создано");
-        }
-        else logger.addLog("Данное правило уже существует - " + rule);
+        } else logger.addLog("Данное правило уже существует - " + rule);
     }
 
     // Генерация слова подсказки для пользователя
@@ -184,14 +182,14 @@ public class WordleGame {
     // Проверяем слово по зафиксированным правилам
     private boolean isRuleWord(String word) {
         boolean flag = true;
-        for (RuleSecretWord rule: rules)
+        for (RuleSecretWord rule : rules)
             switch (rule.getSign()) {
                 case '+':
                     if (word.charAt(rule.getSequenceNumber()) != rule.getSymbol()) flag = false;
                     break;
                 case '-':
-                     if (word.charAt(rule.getSequenceNumber()) == rule.getSymbol()) flag = false;
-                     break;
+                    if (word.charAt(rule.getSequenceNumber()) == rule.getSymbol()) flag = false;
+                    break;
                 case '^':
                     if (!word.contains(String.valueOf(rule.getSymbol()))) flag = false;
                     break;

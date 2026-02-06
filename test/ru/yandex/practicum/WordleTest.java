@@ -24,12 +24,13 @@ class WordleTest {
         game = new WordleGame(loader.loadDictionary(PATH_DICTIONARY), console);
 
     }
+
     @DisplayName("Проверка вариант пользовательского ввода слов, когда вводят латинские символы")
     @Test
     void checkInputWordRussian() throws WordIsWrongLength, WordNotFoundInDictionary {
         int result = -1;
         try {
-             game.checkInputWord("reddd");
+            game.checkInputWord("reddd");
         } catch (WordNotRussian e) {
             result = 1;
         }
@@ -78,7 +79,7 @@ class WordleTest {
     void checkHint() {
         String secretWord = game.getSecretWord();
         for (int i = 0; i < secretWord.length(); i++)
-            game.addRule(secretWord.charAt(i),'+', i);
+            game.addRule(secretWord.charAt(i), '+', i);
 
         String temp = game.getHint();
 
@@ -90,7 +91,7 @@ class WordleTest {
     @Test
     void checkAlgorithmSecret() {
         String secretWord = "сурок";
-        String inputWord  = "сурна";
+        String inputWord = "сурна";
         game.setSecretWord(secretWord);
         String result = game.getFailedStep(inputWord);
         Assertions.assertEquals("+++--", result);
@@ -99,7 +100,7 @@ class WordleTest {
     @DisplayName("Проверка надёжности функций валидации - угадал")
     @Test
     void checkValidationYes() {
-        String inputWord  = game.getSecretWord();
+        String inputWord = game.getSecretWord();
 
         int result = 0;
         try {
@@ -118,7 +119,7 @@ class WordleTest {
     @DisplayName("Проверка надёжности функций валидации - не угадал")
     @Test
     void checkValidationNo() {
-        String secretWord  = game.getSecretWord();
+        String secretWord = game.getSecretWord();
         String inputWord = secretWord.toUpperCase();
 
         int result = 0;
@@ -138,7 +139,7 @@ class WordleTest {
     @DisplayName("Проверка надёжности функций валидации - пустая строка")
     @Test
     void checkValidationEmpty() {
-        String secretWord  = game.getSecretWord();
+        String secretWord = game.getSecretWord();
         String inputWord = "";
 
         int result = 0;

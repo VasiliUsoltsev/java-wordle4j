@@ -13,7 +13,7 @@ public class WordleDictionary {
     private final List<String> words;
     private final FileLogger logger;
 
-    public WordleDictionary(List<String> words,FileLogger logger) {
+    public WordleDictionary(List<String> words, FileLogger logger) {
         this.words = words;
         this.logger = logger;
     }
@@ -45,7 +45,6 @@ public class WordleDictionary {
     public List<String> getDictionary() {
         return words;
     }
-
 
 
 }

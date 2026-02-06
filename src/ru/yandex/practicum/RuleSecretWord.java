@@ -43,13 +43,13 @@ public class RuleSecretWord {
         if (this == obj) return true;
 
         RuleSecretWord o = (RuleSecretWord) obj;
-        return  this.symbol == o.symbol &&
+        return this.symbol == o.symbol &&
                 this.sign == o.sign &&
                 this.sequenceNumber == o.sequenceNumber;
     }
 
     @Override
     public String toString() {
-            return "\n {символ = " + symbol + ", знак = " + sign + ", порядковый номер = " + sequenceNumber + "}";
+        return "\n {символ = " + symbol + ", знак = " + sign + ", порядковый номер = " + sequenceNumber + "}";
     }
 }
