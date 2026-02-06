@@ -50,6 +50,6 @@ public class RuleSecretWord {
 
     @Override
     public String toString() {
-            return "\n {символ = " + symbol + ", знак = "+ sign + ", порядковый номер = " + sequenceNumber + "} ";
+            return "\n {символ = " + symbol + ", знак = " + sign + ", порядковый номер = " + sequenceNumber + "}";
     }
 }
