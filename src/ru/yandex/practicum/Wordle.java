@@ -1,5 +1,6 @@
 package ru.yandex.practicum;
 
+import ru.yandex.practicum.exceptions.game.ExceptionGenerationHint;
 import ru.yandex.practicum.exceptions.game.WordIsWrongLength;
 import ru.yandex.practicum.exceptions.game.WordNotFoundInDictionary;
 import ru.yandex.practicum.exceptions.game.WordNotRussian;
@@ -35,7 +36,7 @@ public class Wordle {
                     System.out.println("Введи слово(вариант " + game.getStep() + "):");
                     System.out.print("-> ");
                     gameRound(scanner.nextLine());
-                } catch (WordNotFoundInDictionary | WordNotRussian | WordIsWrongLength e) {
+                } catch (ExceptionGenerationHint | WordNotFoundInDictionary | WordNotRussian | WordIsWrongLength e) {
                     System.out.println(e.getMessage());
                 }
             }
@@ -48,8 +49,23 @@ public class Wordle {
 
     }
 
-    public static void gameRound(String inputWord) throws WordNotFoundInDictionary, WordNotRussian, WordIsWrongLength {
+    private static void gameRound(String inputWord) throws WordNotFoundInDictionary, WordNotRussian,
+            WordIsWrongLength, ExceptionGenerationHint {
         int result = game.checkInputWord(inputWord);
+
+        if (result == WordleGame.EMPTY_INPUT) {
+            String hint = game.getHint();
+
+            if (hint != null) {
+                System.out.println("Строка подсказка:");
+                System.out.println("-> " + hint);
+                result = game.checkInputWord(hint);
+                inputWord = hint;
+            } else {
+                throw new ExceptionGenerationHint("Ошибка генерации подсказки");
+            }
+        }
+
         switch (result) {
             case WordleGame.SECRET_WORD:
                 // Выйгрыш
@@ -59,12 +75,6 @@ public class Wordle {
                 //Проигрыш
                 System.out.println("-> " + game.getFailedStep(inputWord));
                 System.out.println("Неудачная попытка!");
-                break;
-            case WordleGame.EMPTY_INPUT:
-                // Подсказка
-                String hint = game.getHint();
-                System.out.println("Строка подсказка - " + hint);
-                gameRound(hint);
                 break;
         }
     }

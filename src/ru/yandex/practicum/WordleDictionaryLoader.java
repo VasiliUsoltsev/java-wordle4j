@@ -21,7 +21,7 @@ public class WordleDictionaryLoader {
         this.logger = logger;
     }
 
-    public WordleDictionary loadDictionary(String fileName) throws IOException, DictionaryEmpty {
+    public WordleDictionary loadDictionary(String fileName) throws IOException {
         List<String> words = new ArrayList<>();
         String str;
         try (BufferedReader fileReader = new BufferedReader(new FileReader(fileName, StandardCharsets.UTF_8))) {
